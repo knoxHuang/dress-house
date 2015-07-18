@@ -6,7 +6,7 @@
     {
       "asset": {
         "__type__": "Fire.Sprite",
-        "_name": "title",
+        "_name": "stitle",
         "_objFlags": 0,
         "pivot": {
           "__type__": "Fire.Vec2",
