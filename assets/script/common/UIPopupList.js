@@ -108,6 +108,9 @@ var UIPopupList = Fire.Class({
         //
         this.bindedMouseDownEvent = this.onMouseDownEvent.bind(this);
         Fire.Input.on('mousedown', this.bindedMouseDownEvent);
+    },
+    onDestroy: function() {
+        Fire.Input.off('mousedown', this.bindedMouseDownEvent);
     }
 });
 Fire.UIPopupList = UIPopupList;

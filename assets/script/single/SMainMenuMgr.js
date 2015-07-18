@@ -66,6 +66,10 @@ var SMainMenuMgr = Fire.Class({
         this.sdataBase.sthreeMenuMgr.closeMenu();
         this.sdataBase.smyDressUpWindow.openWindow();
     },
+    // 返回室外
+    _onGoToOutDoorEvent: function () {
+        Fire.Engine.loadScene('launch');
+    },
     // 初始化菜单
     _initMenu: function () {
         var self = this;
@@ -84,6 +88,9 @@ var SMainMenuMgr = Fire.Class({
             }
             else if (ent.name === "3") {
                 btn.onClick = self._onMyDressEvent.bind(self);
+            }
+            else if (ent.name === "4") {
+                btn.onClick = self._onGoToOutDoorEvent.bind(self);
             }
         }
     },
@@ -121,6 +128,8 @@ var SMainMenuMgr = Fire.Class({
         this._initMenu();
         // 初始化场景
         this._initScreen();
+
+        Fire.Engine.preloadScene('launch');
     },
 
     // 刷新

@@ -24,7 +24,7 @@ var SDataBase = Fire.Class({
         // 房间头节点
         this.room = Fire.Entity.find('/Room');
         // 控制管理类
-        this.scontrolMgr = this.room.getComponent('ControlMgr');
+        this.scontrolMgr = this.room.getComponent('SControlMgr');
         // 控制选项
         var ent = this.entity.find('Options');
         this.options = ent.getComponent('Options');
@@ -86,6 +86,9 @@ var SDataBase = Fire.Class({
     },
     // 刷新场景数据
     refreshScreen: function (data) {
+        if (!this.bgRender && !this.groundRender) {
+            return;
+        }
         var comp = null;
         if (data.propType === 1) {
             // 背景

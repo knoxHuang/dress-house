@@ -1,0 +1,49 @@
+{
+  "__type__": "Editor.TextureMeta",
+  "ver": 0,
+  "uuid": "3e922c76-311d-4012-98db-e315cfa1b77e",
+  "subRawData": [
+    {
+      "asset": {
+        "__type__": "Fire.Sprite",
+        "_name": "Papelera-vac-130",
+        "_objFlags": 0,
+        "pivot": {
+          "__type__": "Fire.Vec2",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "trimX": 0,
+        "trimY": 0,
+        "width": 130,
+        "height": 107,
+        "texture": {
+          "__uuid__": "3e922c76-311d-4012-98db-e315cfa1b77e"
+        },
+        "rotated": false,
+        "x": 0,
+        "y": 0,
+        "rawWidth": 130,
+        "rawHeight": 107,
+        "pixelLevelHitTest": false,
+        "alphaThreshold": 0.1,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0
+      },
+      "meta": {
+        "__type__": "Editor.SpriteMeta",
+        "ver": 0,
+        "uuid": "c649a782-7dfd-4ef0-a271-d5bbb064b835",
+        "atlasTag": "default",
+        "trimType": 0,
+        "trimThreshold": 1,
+        "rawTextureUuid": "3e922c76-311d-4012-98db-e315cfa1b77e"
+      }
+    }
+  ],
+  "type": 1,
+  "wrapMode": 1,
+  "filterMode": 1
+}

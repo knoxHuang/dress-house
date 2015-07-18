@@ -77,6 +77,9 @@ var SSecondaryMenuMgr = Fire.Class({
     },
     // 刷新单个二级菜单
     _refreshSingleSecondaryMenu: function (index, data) {
+        if (!this._menuSheets || this._menuSheets.length === 0) {
+            return;
+        }
         var menu = this._menuSheets[index];
         if (menu) {
             menu.refresh(data, this.bindOpenThreeMenuEvent);

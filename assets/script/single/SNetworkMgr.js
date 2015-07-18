@@ -90,7 +90,9 @@ var SNetworkMgr = Fire.Class({
             data: params,
             dataType: 'jsonp',
             success: function (data) {
-                self.sdataBase.sloadingTips.closeTips();
+                if (self.sdataBase) {
+                    self.sdataBase.sloadingTips.closeTips();
+                }
                 if (callBack) {
                     callBack(data);
                 }
