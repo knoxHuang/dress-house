@@ -1,0 +1,49 @@
+{
+  "__type__": "Editor.TextureMeta",
+  "ver": 0,
+  "uuid": "e9f29644-46b8-4aa2-bc7d-2aa60fbac30e",
+  "subRawData": [
+    {
+      "asset": {
+        "__type__": "Fire.Sprite",
+        "_name": "2",
+        "_objFlags": 0,
+        "pivot": {
+          "__type__": "Fire.Vec2",
+          "x": 0.5,
+          "y": 0.5
+        },
+        "trimX": 2,
+        "trimY": 0,
+        "width": 142,
+        "height": 157,
+        "texture": {
+          "__uuid__": "e9f29644-46b8-4aa2-bc7d-2aa60fbac30e"
+        },
+        "rotated": false,
+        "x": 2,
+        "y": 0,
+        "rawWidth": 145,
+        "rawHeight": 160,
+        "pixelLevelHitTest": false,
+        "alphaThreshold": 0.1,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0
+      },
+      "meta": {
+        "__type__": "Editor.SpriteMeta",
+        "ver": 0,
+        "uuid": "97d9811b-8d4c-472e-9330-73567ac73ba4",
+        "atlasTag": "default",
+        "trimType": 0,
+        "trimThreshold": 1,
+        "rawTextureUuid": "e9f29644-46b8-4aa2-bc7d-2aa60fbac30e"
+      }
+    }
+  ],
+  "type": 1,
+  "wrapMode": 1,
+  "filterMode": 1
+}

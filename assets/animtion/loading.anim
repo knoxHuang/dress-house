@@ -1,0 +1,36 @@
+{
+  "__type__": "Fire.AnimationClip",
+  "_name": "",
+  "_objFlags": 0,
+  "_length": 10.033333333333333,
+  "frameRate": 60,
+  "curveData": [
+    {
+      "component": "Fire.Transform",
+      "property": "rotation",
+      "keys": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ]
+        },
+        {
+          "frame": 602,
+          "value": 360,
+          "curve": [
+            0.5,
+            0.5,
+            0.5,
+            0.5
+          ]
+        }
+      ]
+    }
+  ],
+  "events": []
+}

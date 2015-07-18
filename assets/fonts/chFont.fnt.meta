@@ -1,0 +1,10 @@
+{
+  "__type__": "Editor.BitmapFontMeta",
+  "ver": 0,
+  "uuid": "332e83f8-32ad-47b0-9143-003d2ca89e66",
+  "texture": {
+    "__type__": "Fire.Asset",
+    "_name": "",
+    "_objFlags": 0
+  }
+}

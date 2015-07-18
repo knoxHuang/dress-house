@@ -1,0 +1,14 @@
+{
+  "buildPath": "C:\\fireball\\waibao\\saike-home\\mobile-saike-home",
+  "defaultScene": "c1eaf183-f7fc-43be-bb35-d63b66c8786e",
+  "isDebug": true,
+  "platform": "web-mobile",
+  "projectName": "saike-home",
+  "sceneList": [
+    {
+      "checked": true,
+      "name": "assets://Wab_Main.fire",
+      "value": "c1eaf183-f7fc-43be-bb35-d63b66c8786e"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "buildPath": "C:\\abitgame\\Outsourcing\\saike-home\\mobile-saike-home",
+  "defaultScene": "e2813d5a-f8e0-4ca5-bc0e-3bec4464ffd0",
+  "isDebug": true,
+  "platform": "web-mobile",
+  "projectName": "saike-home",
+  "sceneList": [
+    {
+      "checked": true,
+      "name": "assets://scene/Main.fire",
+      "value": "e2813d5a-f8e0-4ca5-bc0e-3bec4464ffd0"
+    }
+  ]
+}
