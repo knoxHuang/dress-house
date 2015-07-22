@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Fireball | saike-home</title>
+
+    <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi" />
+
+    <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="landscape"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+
+    <!--<link rel="apple-touch-icon" href=".png" />-->
+    <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+    <style>
+        html {
+            -ms-touch-action: none;
+        }
+        body {
+            text-align: center;
+            background-color: black;
+            font-family: Helvetica, Verdana, Arial, sans-serif;
+        }
+        body, canvas, div {
+            position: absolute;
+            display: block;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        a:link, a:visited {
+            color: #666;
+        }
+        a:active, a:hover {
+            color: #666;
+        }
+        p.header {
+            font-size: small;
+        }
+        p.footer {
+            font-size: x-small;
+        }
+    </style>
+
+    <script src="cocos2d.dev.js"></script>
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="fireball.dev.js" charset="utf-8"></script>
+    <script src="project.dev.js" charset="utf-8"></script>
+    <script src="boot.js" charset="utf-8"></script>
+    <script>
+        window.addEventListener('load', function () {
+            var div = document.getElementById('GameDiv');
+            var canvas = document.getElementById('GameCanvas');
+            var width = document.documentElement.clientWidth;
+            var height = document.documentElement.clientHeight;
+            div.style.width = width + "px";
+            div.style.height = height + "px";
+        });
+    </script>
+</head>
+<body style="padding: 0px; border: 0px; margin: 0px;">
+    <div id="GameDiv" style="position: relative; background: #000000 url(splash.png) no-repeat center;">
+        <canvas id="GameCanvas" width="32" height="32" oncontextmenu="event.preventDefault()" style="visibility: hidden" tabindex="0"></canvas>
+    </div>
+</body>
+</html>

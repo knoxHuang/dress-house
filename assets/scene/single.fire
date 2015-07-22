@@ -165,7 +165,7 @@
       "b": 0.18823529411764706,
       "a": 1
     },
-    "_size": 1518.5792253060804,
+    "_size": 2954.1071930629605,
     "_contentStrategy": 1
   },
   {
@@ -6106,31 +6106,31 @@
     "_rotation": 0,
     "_scale": {
       "__type__": "Fire.Vec2",
-      "x": 1,
-      "y": 1
+      "x": 1.2,
+      "y": 1.2
     }
   },
   {
-    "__type__": "Fire.Text",
+    "__type__": "Fire.BitmapText",
     "_name": "",
     "_objFlags": 0,
     "entity": {
       "__id__": 261
     },
     "_enabled": true,
-    "_fontType": 0,
-    "_customFontType": "simhei",
+    "_bitmapFont": {
+      "__uuid__": "332e83f8-32ad-47b0-9143-003d2ca89e66"
+    },
     "_text": "保存成功..",
-    "_size": 60,
     "_color": {
       "__type__": "Fire.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 1,
+      "g": 1,
+      "b": 1,
       "a": 1
     },
-    "_align": 1,
-    "_anchor": 4
+    "_anchor": 4,
+    "_align": 0
   },
   {
     "__type__": "Fire.Entity",
@@ -6511,7 +6511,7 @@
     "_enabled": true,
     "_fontType": 0,
     "_customFontType": "Arial",
-    "_text": "温馨提示：你先完善所有信息才能保存装扮",
+    "_text": "温馨提示: 你先完善所有信息才能保存装扮 !",
     "_size": 40,
     "_color": {
       "__type__": "Fire.Color",
@@ -7113,26 +7113,26 @@
     }
   },
   {
-    "__type__": "Fire.Text",
+    "__type__": "Fire.BitmapText",
     "_name": "",
     "_objFlags": 0,
     "entity": {
       "__id__": 307
     },
     "_enabled": true,
-    "_fontType": 0,
-    "_customFontType": "Arial",
-    "_text": "加载中请稍后...",
-    "_size": 59,
+    "_bitmapFont": {
+      "__uuid__": "332e83f8-32ad-47b0-9143-003d2ca89e66"
+    },
+    "_text": "加载中....",
     "_color": {
       "__type__": "Fire.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
+      "r": 1,
+      "g": 1,
+      "b": 1,
       "a": 1
     },
-    "_align": 0,
-    "_anchor": 4
+    "_anchor": 4,
+    "_align": 0
   },
   {
     "__type__": "1c9b1eYJotO45XKuysbAfkq",

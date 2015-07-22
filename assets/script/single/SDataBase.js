@@ -146,7 +146,9 @@ var SDataBase = Fire.Class({
                 //
                 Fire.ImageLoader(newData.imageUrl, loadImageCallBack);
                 //
-                self.initScreenData.push(newData);
+                if (self.initScreenData) {
+                    self.initScreenData.push(newData);
+                }
             });
         });
     },

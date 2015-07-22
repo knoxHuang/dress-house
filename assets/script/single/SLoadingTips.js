@@ -9,7 +9,7 @@ var SLoadingTips = Fire.Class({
     properties: {
         content:{
             default: null,
-            type: Fire.Text
+            type: Fire.BitmapText
         },
         anim: {
             default: null,

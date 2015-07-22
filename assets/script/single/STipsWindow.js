@@ -9,7 +9,7 @@ var TipsWindow = Fire.Class({
     properties: {
         content:{
             default: null,
-            type: Fire.Text
+            type: Fire.BitmapText
         },
         btn_Confirm:{
             default: null,

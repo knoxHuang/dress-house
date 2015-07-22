@@ -1,30 +1,30 @@
 {
   "__type__": "Editor.TextureMeta",
   "ver": 0,
-  "uuid": "c243efdf-4b45-4fd0-bcc1-ed24727718e5",
+  "uuid": "f108ec55-fe44-40a9-b931-43214c6779cb",
   "subRawData": [
     {
       "asset": {
         "__type__": "Fire.Sprite",
-        "_name": "chFont_0",
+        "_name": "girl",
         "_objFlags": 0,
         "pivot": {
           "__type__": "Fire.Vec2",
           "x": 0.5,
           "y": 0.5
         },
-        "trimX": 1,
-        "trimY": 1,
-        "width": 4093,
-        "height": 2187,
+        "trimX": 4,
+        "trimY": 0,
+        "width": 264,
+        "height": 567,
         "texture": {
-          "__uuid__": "c243efdf-4b45-4fd0-bcc1-ed24727718e5"
+          "__uuid__": "f108ec55-fe44-40a9-b931-43214c6779cb"
         },
         "rotated": false,
-        "x": 1,
-        "y": 1,
-        "rawWidth": 4096,
-        "rawHeight": 4096,
+        "x": 4,
+        "y": 0,
+        "rawWidth": 268,
+        "rawHeight": 567,
         "pixelLevelHitTest": false,
         "alphaThreshold": 0.1,
         "borderTop": 0,
@@ -35,11 +35,11 @@
       "meta": {
         "__type__": "Editor.SpriteMeta",
         "ver": 0,
-        "uuid": "5d57bc26-80aa-441b-881f-00f336e97b71",
+        "uuid": "6e5485a7-8ca5-4b76-8cd6-f0ef4ee8dbd9",
         "atlasTag": "default",
         "trimType": 0,
         "trimThreshold": 1,
-        "rawTextureUuid": "c243efdf-4b45-4fd0-bcc1-ed24727718e5"
+        "rawTextureUuid": "f108ec55-fe44-40a9-b931-43214c6779cb"
       }
     }
   ],

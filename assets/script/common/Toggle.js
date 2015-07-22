@@ -26,6 +26,16 @@ var Toggle =Fire.Class({
         pressedSprite: {
             default: null,
             type: Fire.Sprite
+        },
+        // 按钮渲染
+        btnRender: {
+            get: function () {
+                if (! this._btnRender) {
+                    this._btnRender = this.entity.getComponent(Fire.SpriteRenderer);
+                }
+                return this._btnRender;
+            },
+            visible: false
         }
     },
     // 按下
@@ -93,13 +103,9 @@ var Toggle =Fire.Class({
         this.textContent.text = value;
     },
     // 载入时
-    start: function () {
+    onLoad: function () {
         this.entity.on('mousedown', this._onButtonDownEventBind);
         this.entity.on('mouseup', this._onButtonUpEventBind);
-
-        if (!this.btnRender){
-            this.btnRender = this.entity.getComponent(Fire.SpriteRenderer);
-        }
         if (this.normalSprite) {
             this.btnRender.sprite = this.normalSprite;
         }

@@ -150,15 +150,22 @@ var FloorWindow = Fire.Class({
         if (self.relieveing) {
             return;
         }
-        self.relieveing = true;
         var familyInfo = event.target.parent.getComponent('FamilyInfo');
-        var sendData = {
-            mark: familyInfo.mark
-        };
-        self.dataBase.netWorkMgr.RequestDisassociateList(sendData, function (serverData) {
-            self.refreshFloorData(serverData, function () {
-                self._switchingData(self.floorType);
-                self.relieveing = false;
+        self.dataBase.tipsWindow.openTipsWindow("是否与 " + familyInfo.lover_name + " 解除关系?", function () {
+            self.relieveing = true;
+            var sendData = {
+                mark: familyInfo.mark
+            };
+            self.dataBase.netWorkMgr.RequestDisassociateList(sendData, function (serverData) {
+                if (serverData.status === 10000) {
+                    self.refreshFloorData(serverData, function () {
+                        self._switchingData(self.floorType);
+                        self.relieveing = false;
+                    });
+                }
+                else {
+                    self.tipsWindow.openTipsWindow(serverData.desc);
+                }
             });
         });
     },
