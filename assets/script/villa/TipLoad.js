@@ -22,9 +22,6 @@ var TipLoad = Fire.Class({
     },
     // 加载
     onLoad: function () {
-        var ent = Fire.Entity.find('/DataBase');
-        this.dataBase = ent.getComponent('Database');
-
         var state = this.anim.play('loading');
         state.wrapMode = Fire.WrapMode.Loop;
         state.repeatCount = Infinity;

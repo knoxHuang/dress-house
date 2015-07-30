@@ -28,6 +28,8 @@ var SLoadingTips = Fire.Class({
         else {
             this.content.text = '加载中请稍后...';
         }
+        var size = this.content.getWorldSize();
+        this.anim.entity.transform.worldPosition = new Fire.Vec2(size.x / 2 + 50, 0);
     },
     // 关闭窗口
     closeTips: function () {

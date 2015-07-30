@@ -116,6 +116,9 @@ var SwitchRoomWindow = Fire.Class({
             self.dataBase.loadTips.closeTips();
             self.closeWindow();
             self.dataBase.firstMenuMgr.closeMenu();
+
+            self.dataBase.updateCharacters();
+            self.dataBase.characters.entity.active = true;
         });
     },
     // 清空房间

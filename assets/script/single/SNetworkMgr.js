@@ -67,7 +67,7 @@ var SNetworkMgr = Fire.Class({
         if (! this.getToKenValue()) {
             return;
         }
-        this.sdataBase.sloadingTips.openTips();
+        //this.sdataBase.sloadingTips.openTips();
         this._postData = data;
         this.jQueryAjax(data.url, data.sendData, data.cb, data.errCb);
     },
@@ -90,9 +90,9 @@ var SNetworkMgr = Fire.Class({
             data: params,
             dataType: 'jsonp',
             success: function (data) {
-                if (self.sdataBase) {
-                    self.sdataBase.sloadingTips.closeTips();
-                }
+                //if (self.sdataBase) {
+                //    self.sdataBase.sloadingTips.closeTips();
+                //}
                 if (callBack) {
                     callBack(data);
                 }

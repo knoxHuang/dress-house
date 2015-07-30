@@ -70,7 +70,7 @@ var FloorWindow = Fire.Class({
         this.resetData();
         this.modifyToggle();
     },
-    // 打开窗口打开窗口
+    // 打开窗口
     openWindow: function () {
         this.entity.active = true;
         var self = this;

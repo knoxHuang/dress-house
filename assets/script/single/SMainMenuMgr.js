@@ -4,13 +4,15 @@ var SMainMenuMgr = Fire.Class({
     extends: Fire.Component,
     // 构造函数
     constructor: function () {
-
     },
     // 属性
     properties: {
         // UI与屏幕的间距
         margin: {
             default: Fire.v2(72, 150)
+        },
+        imageMargin: {
+            default: Fire.v2(1200, 900)
         },
         spacing: {
             default: 140
@@ -53,15 +55,19 @@ var SMainMenuMgr = Fire.Class({
                 this.resetScreen();
             }.bind(this));
         }
+        this.sdataBase.ssecondaryMenuMgr.openSecondaryMenu();
+        this.sdataBase.characters.entity.active = false;
     },
     // 保存装扮事件
     _onSaveDressEvent: function () {
+        this.sdataBase.characters.entity.active = false;
         this.sdataBase.scontrolMgr.reset();
         this.sdataBase.sthreeMenuMgr.closeMenu();
         this.sdataBase.ssaveRoomWindow.openWindow();
     },
     // 我的装扮事件
     _onMyDressEvent: function () {
+        this.sdataBase.characters.entity.active = false;
         this.sdataBase.scontrolMgr.reset();
         this.sdataBase.sthreeMenuMgr.closeMenu();
         this.sdataBase.smyDressUpWindow.openWindow();
@@ -139,5 +145,15 @@ var SMainMenuMgr = Fire.Class({
         var screenSize = Fire.Screen.size.mul(camera.size / Fire.Screen.height);
         var newPos = Fire.v2(-screenSize.x / 2 + this.margin.x, screenSize.y / 2 - this.margin.y);
         this.entity.transform.position = newPos;
+
+        //
+        var camera = Fire.Camera.main;
+        var bgWorldBounds = this.sdataBase.bgRender.getWorldBounds();
+        var bgLeftTopWorldPos = new Fire.Vec2(bgWorldBounds.xMin + this.imageMargin.x, bgWorldBounds.yMin + this.imageMargin.y);
+        var bgleftTop = camera.worldToScreen(bgLeftTopWorldPos);
+        var screenPos = new Fire.Vec2(bgleftTop.x, bgleftTop.y);
+        var worldPos = camera.screenToWorld(screenPos);
+        this.sdataBase.characters.entity.transform.worldPosition = worldPos;
+
     }
 });

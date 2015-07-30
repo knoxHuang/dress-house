@@ -13,6 +13,7 @@ var OtherMenuMgr = Fire.Class({
     // 切换楼层
     _onChangeFloorEvent: function () {
         this.dataBase.floorWin.openWindow();
+        this.dataBase.characters.entity.active = false;
     },
     // 获取菜单按钮并且绑定事件
     _initMenu: function () {

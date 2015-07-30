@@ -152,6 +152,7 @@ var UIButton =Fire.Class({
     setImage: function (image) {
         this.image = image;
         var newSprite = new Fire.Sprite(image);
+        newSprite.pixelLevelHitTest = true;
         this.btnRender.sprite = newSprite;
         this._normalSprite = newSprite;
         this.hoverSprite = newSprite;

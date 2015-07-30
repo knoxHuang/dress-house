@@ -32,9 +32,10 @@ var MainMenuMgr = Fire.Class({
             mark: this.dataBase.mark
         };
         self.dataBase.switchRoomWin.openWindow(0, sendData);
+        self.dataBase.characters.entity.active = false;
     },
     // 房屋扮靓
-    _onHouseDressEvent: function () {
+    onHouseDressEvent: function () {
         console.log('房屋扮靓');
         var sendData = {
             mark: this.dataBase.mark
@@ -63,6 +64,7 @@ var MainMenuMgr = Fire.Class({
                 self.dataBase.tipsWindow.openTipsWindow(serverData.desc);
             }
         });
+        self.dataBase.characters.entity.active = false;
     },
     // 保存装扮
     _onSaveDressEvent: function () {
@@ -96,6 +98,7 @@ var MainMenuMgr = Fire.Class({
             }
             console.log('保存装扮');
         });
+        self.dataBase.characters.entity.active = false;
     },
     // 扮靓商场
     _onGoToMallEvent: function () {
@@ -123,7 +126,7 @@ var MainMenuMgr = Fire.Class({
                 btn.onClick = self._onChangeRoomEvent.bind(self);
             }
             else if (ent.name === "2") {
-                btn.onClick = self._onHouseDressEvent.bind(self);
+                btn.onClick = self.onHouseDressEvent.bind(self);
             }
             else if (ent.name === "3") {
                 btn.onClick = self._onSaveDressEvent.bind(self);

@@ -18,6 +18,8 @@ var SDataBase = Fire.Class({
         this.myDressUpTotal = 0;
         // 我的装扮数据列表
         this.myDressUpDataSheets = [];
+        // 保存所有图片
+        this.loadImageList = {};
     },
     // 加载预制
     _loadObject: function () {
@@ -34,6 +36,11 @@ var SDataBase = Fire.Class({
         // 地板
         ent = Fire.Entity.find('/Room/ground');
         this.groundRender = ent.getComponent(Fire.SpriteRenderer);
+        // 人物形象
+        ent = Fire.Entity.find('/Characters');
+        this.characters = ent.getComponent(Fire.SpriteRenderer);
+        ent = Fire.Entity.find('/Characters/CharactersName');
+        this.charactersName = ent.getComponent(Fire.BitmapText);
         // 二级子菜单模板
         this.tempSecondaryMenu = this.entity.find('SecondaryMenu');
         // 三级子菜单模板
@@ -74,6 +81,11 @@ var SDataBase = Fire.Class({
         this.sloadingTips = ent.getComponent('SLoadingTips');
         // 提示没有用户信息
         this.stoKenTips = Fire.Entity.find('/Tips_ToKen');
+
+        ent = Fire.Entity.find('/GlobalData');
+        if (ent) {
+            this.globalData = ent.getComponent("GlobalData");
+        }
     },
     // 载入时
     onLoad: function () {
@@ -84,6 +96,27 @@ var SDataBase = Fire.Class({
             this.stoKenTips.active = true;
         }
     },
+
+    // 下载图片
+    loadImage: function (url, callback) {
+        var self = this;
+        if (self.loadImageList[url]) {
+            var image = self.loadImageList[url];
+            if (callback) {
+                callback(null, image);
+            }
+            return;
+        }
+        Fire.ImageLoader(url, function (error, image) {
+            if (callback) {
+                callback(error, image);
+            }
+            if (image) {
+                self.loadImageList[url] = image;
+            }
+        });
+    },
+
     // 刷新场景数据
     refreshScreen: function (data) {
         if (!this.bgRender && !this.groundRender) {
@@ -107,7 +140,19 @@ var SDataBase = Fire.Class({
     },
     // 预加载初始化场景
     preloadInitScreenData: function () {
-        // 如何有缓存用缓存的
+
+        if (this.globalData) {
+            if (this.globalData.gotoType === 2) {
+                this.characters.sprite = this.globalData.hostSprite;
+                this.charactersName.text = this.globalData.hostName;
+                this.characters.entity.active = true;
+            }
+            else {
+                this.ssecondaryMenuMgr.openSecondaryMenu();
+            }
+        }
+
+        // 如何有缓存用缓存的没有再去下载
         if (this.initScreenData.length > 0) {
             for (var i = 0; i < this.initScreenData.length; ++i){
                 var data = this.initScreenData[i];
@@ -115,10 +160,11 @@ var SDataBase = Fire.Class({
             }
             return;
         }
-        // 没有再去下载
         var self = this;
+        self.sloadingTips.openTips("初始化场景中..");
+        var index = 0, maxIndex = 0;
         self.snetWorkMgr.RequestInitHome(function (serverData) {
-            console.log(serverData);
+            maxIndex = serverData.list.length;
             serverData.list.forEach(function (data) {
                 //
                 var newData = {
@@ -131,8 +177,13 @@ var SDataBase = Fire.Class({
                     imageUrl: data.imgUrl,
                     sprite: null
                 };
+
                 //
                 var loadImageCallBack = function (newData, error, image) {
+                    index++;
+                    if(index === maxIndex){
+                        self.sloadingTips.closeTips();
+                    }
                     if (!Fire.Engine.isPlaying) {
                         return;
                     }
@@ -144,7 +195,7 @@ var SDataBase = Fire.Class({
                     self.refreshScreen(newData);
                 }.bind(this, newData);
                 //
-                Fire.ImageLoader(newData.imageUrl, loadImageCallBack);
+                self.loadImage(newData.imageUrl, loadImageCallBack);
                 //
                 if (self.initScreenData) {
                     self.initScreenData.push(newData);
@@ -207,7 +258,6 @@ var SDataBase = Fire.Class({
             self.myDressUpTotal = parseInt(allData.total);
             var index = 0;
             allData.list.forEach(function (data) {
-                console.log(data);
                 var myDressUpData = {
                     id: data.suit_id,
                     name: data.suit_name,
@@ -291,7 +341,7 @@ var SDataBase = Fire.Class({
                     }
                 }.bind(this, data, index);
                 // 下载图片
-                Fire.ImageLoader(data.url, loadImageCallBack);
+                self.loadImage(data.url, loadImageCallBack);
                 index++;
                 // 保存二级菜单数据
                 self.secondaryMenuDataSheets.push(data);
@@ -339,7 +389,7 @@ var SDataBase = Fire.Class({
                     if (error) {
                         loadImageCount++;
                         if (loadImageCount < 2) {
-                            Fire.ImageLoader(menuData.samllImageUrl, loadImageCallBack);
+                            self.loadImage(menuData.samllImageUrl, loadImageCallBack);
                         }
                         else {
                             console.log(error);
@@ -354,7 +404,7 @@ var SDataBase = Fire.Class({
                     loadImageCount = 0;
                 }.bind(this, menuData, index);
                 // 加载小图
-                Fire.ImageLoader(data.prod_image_url, loadImageCallBack);
+                self.loadImage(data.prod_image_url, loadImageCallBack);
                 //
                 index++;
                 //

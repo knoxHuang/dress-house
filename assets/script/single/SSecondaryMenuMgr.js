@@ -91,8 +91,9 @@ var SSecondaryMenuMgr = Fire.Class({
         // 预加载 单品
         this.sdataBase.preloadSecondaryMenuData(this.bindRefreshEevnt);
     },
-    // 开始
-    start: function () {
+    // 打开二级菜单
+    openSecondaryMenu: function () {
+        this.entity.active = true;
         // 刷新单品家具菜单列表
         this._refreshSecondaryMenu();
     },
