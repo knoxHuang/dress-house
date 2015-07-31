@@ -1,21 +1,23 @@
 var GlobalData = Fire.Class({
-    // ¼Ì³Ğ
+    // ç»§æ‰¿
     extends: Fire.Component,
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     constructor: function () {
+        this.hostName = "";
         this.hostSprite = null;
         this.hostName = "";
+        this.sendData = null;
     },
-    // ÊôĞÔ
+    // å±æ€§
     properties: {
-        // 1.½øÈëÊÒÄÚ²¢ÇÒÖ±½Ó½øĞĞ×°°ç 2. ½øÈëÊÒÄÚ
+        // 1.è¿›å…¥å®¤å†…å¹¶ä¸”ç›´æ¥è¿›è¡Œè£…æ‰® 2. è¿›å…¥å®¤å†…
         gotoType: -1
     },
-    // ¿ªÊ¼
+    // å¼€å§‹
     start: function () {
 
     },
-    // ¸üĞÂ
+    // æ›´æ–°
     update: function () {
 
     }

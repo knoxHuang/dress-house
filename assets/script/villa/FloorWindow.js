@@ -16,6 +16,8 @@ var FloorWindow = Fire.Class({
         this._maxPage = 1;
         // 类型 0：我的家庭成员 1：我加入的家庭
         this.floorType = 0;
+        //
+        this.relieveing = false;
     },
     // 属性
     properties: {

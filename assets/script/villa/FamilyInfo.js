@@ -42,12 +42,12 @@ var Comp = Fire.Class({
         // 加入房屋
         btn_goTo: {
             default: null,
-            type: Fire.Button
+            type: Fire.UIButton
         },
         // 解除关系
         btn_del: {
             default: null,
-            type: Fire.Button
+            type: Fire.UIButton
         }
     },
     // 更新房屋等级

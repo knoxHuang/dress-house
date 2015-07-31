@@ -84,10 +84,17 @@ var DataBata = Fire.Class({
             return;
         }
         // 初始化房间
-        var sendData = {
-            mark: '',
-            house_uid: 0
-        };
+        var sendData = {};
+        if(this.globalData && this.globalData.sendData){
+            sendData = this.globalData.sendData;
+            this.globalData.sendData = null;
+        }
+        else {
+            sendData = {
+                mark: '',
+                house_uid: 0
+            };
+        }
         var self = this;
         self.loadTips.openTips('初始化场景，请稍后...');
         self.intoRoom(sendData, function () {

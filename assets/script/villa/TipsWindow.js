@@ -29,7 +29,9 @@ var TipsWindow = Fire.Class({
 
     openTipsWindow: function (value, callback) {
         this.onCallback = null;
-        this.content.text = value;
+        if (this.content && value){
+            this.content.text = value;
+        }
         if (callback) {
             this.onCallback = callback;
         }

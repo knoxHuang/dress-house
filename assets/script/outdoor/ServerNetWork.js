@@ -1,22 +1,22 @@
-// ¸ú·şÎñÆ÷½øĞĞ¶Ô½Ó
+// è·ŸæœåŠ¡å™¨è¿›è¡Œå¯¹æ¥
 var ServerNetWork = Fire.Class({
-    // ¼Ì³Ğ
+    // ç»§æ‰¿
     extends: Fire.Component,
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     constructor: function () {
-        // µ±Ç°ÇëÇóÊı¾İ
+        // å½“å‰è¯·æ±‚æ•°æ®
         this._postData = {};
-        // ¶ÏÏßÖØÁ¬´°¿Ú
+        // æ–­çº¿é‡è¿çª—å£
         this.netWorkWin = null;
-        // ÓÃÓÚ²âÊÔµÄtokenÊı¾İ
+        // ç”¨äºæµ‹è¯•çš„tokenæ•°æ®
         this.token = '';
     },
-    // ÊôĞÔ
+    // å±æ€§
     properties: {
         localTest: false
     },
 
-    // »ñÈ¡ÓÃ»§ĞÅÏ¢
+    // è·å–ç”¨æˆ·ä¿¡æ¯
     getToKenValue: function () {
         if (this.localTest) {
             this.token = 'MTAwMTQ5MjY4NV8yYjEyZjY1OTZjMjQxNjBlYmIwMTY1OTA2MDk1Y2I1NF8xNDM4MDc1Mzc1X3dhcF8xMDAxNDkyNjg1';
@@ -24,13 +24,13 @@ var ServerNetWork = Fire.Class({
         else {
             this.token = this.getQueryString('token');
             if (!this.token) {
-                //console.log("Ã»ÓĞÓÃ»§ĞÅÏ¢, ToKen is null");
+                //console.log("æ²¡æœ‰ç”¨æˆ·ä¿¡æ¯, ToKen is null");
                 return false;
             }
         }
         return true;
     },
-    // ÓÃJS»ñÈ¡µØÖ·À¸²ÎÊıµÄ·½·¨
+    // ç”¨JSè·å–åœ°å€æ å‚æ•°çš„æ–¹æ³•
     getQueryString: function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -39,14 +39,14 @@ var ServerNetWork = Fire.Class({
         }
         return null;
     },
-    // ÇëÇóÊ§°Ü
+    // è¯·æ±‚å¤±è´¥
     _errorCallBack: function () {
         var self = this;
         this.netWorkWin.openWindow(function () {
             self.sendData(self._postData);
         });
     },
-    // ·¢ËÍÊı¾İ
+    // å‘é€æ•°æ®
     sendData: function (data) {
         if (!Fire.Engine.isPlaying) {
             return;
@@ -54,11 +54,11 @@ var ServerNetWork = Fire.Class({
         if (!this.getToKenValue()) {
             return;
         }
-        //this.dataBase.loadTips.openTips('ÇëÇóÖĞ£¬ÇëÉÔºó...');
+        //this.dataBase.loadTips.openTips('è¯·æ±‚ä¸­ï¼Œè¯·ç¨å...');
         this._postData = data;
         this.jQueryAjax(data.url, data.sendData, data.cb, data.errCb);
     },
-    // ·¢ËÍÏûÏ¢
+    // å‘é€æ¶ˆæ¯
     jQueryAjax: function (strUrl, data, callBack, errorCallBack) {
         var params = "";
         if (typeof(data) !== "object") {
@@ -97,7 +97,7 @@ var ServerNetWork = Fire.Class({
         };
         jQuery.ajax(send);
     },
-    // ³õÊ¼»¯Íâ¾°Êı¾İ
+    // åˆå§‹åŒ–å¤–æ™¯æ•°æ®
     InitOutdoor: function (sendData, callback) {
         var postData = {
             url: "http://m.saike.com/suitdress/browseScene.html",
@@ -109,7 +109,7 @@ var ServerNetWork = Fire.Class({
         };
         this.sendData(postData);
     },
-    // Â¥²ãÁĞ±í
+    // æ¥¼å±‚åˆ—è¡¨
     RequestFloorList: function (callback) {
         var postData = {
             url: "http://m.saike.com/suitdress/floorList.html",
@@ -119,7 +119,21 @@ var ServerNetWork = Fire.Class({
         };
         this.sendData(postData);
     },
-    // ½â³ı¹ØÏµ
+    // è·å–å¹³é¢å›¾
+    RequestPlan: function (sendData, callback) {
+        var postData = {
+            url: "http://m.saike.com/suitdress/showCover.html",
+            sendData: {
+                house_uid: sendData.house_uid,
+                floor_id: sendData.floor_id,
+                mark: sendData.mark
+            },
+            cb: callback,
+            errCb: this._errorCallBack.bind(this)
+        };
+        this.sendData(postData);
+    },
+    // è§£é™¤å…³ç³»
     RequestDisassociateList: function (sendData, callback) {
         var postData = {
             url: "http://m.saike.com/suitdress/releaseRelation.html",
@@ -129,9 +143,9 @@ var ServerNetWork = Fire.Class({
         };
         this.sendData(postData);
     },
-    // ¿ªÊ¼Ê±
+    // å¼€å§‹æ—¶
     start: function () {
-        // ÖØĞÂÇëÇó·şÎñÆ÷´°¿Ú
+        // é‡æ–°è¯·æ±‚æœåŠ¡å™¨çª—å£
         var ent = Fire.Entity.find('/Tip_NetWork');
         this.netWorkWin = ent.getComponent('NewWorkWindow');
     }

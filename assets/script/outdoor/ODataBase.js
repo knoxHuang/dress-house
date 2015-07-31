@@ -8,6 +8,8 @@ var ODataBase = Fire.Class({
         this.loadImageList = {};
         //
         this.uid = 0;
+        //
+        this.mark;
     },
 
     properties: {
@@ -69,6 +71,15 @@ var ODataBase = Fire.Class({
         //
         ent = Fire.Entity.find('/Characters');
         this.characters = ent.getComponent('Characters');
+        //
+        ent = Fire.Entity.find('/Win_MyAddFamily');
+        this.myAddFamilyWin = ent.getComponent('MyAddFamilyWindow');
+        //
+        ent = Fire.Entity.find('/Win_Plan');
+        this.planWin = ent.getComponent('PlanWindow');
+        //
+        ent = Fire.Entity.find('/Tip_NoAddFamily');
+        this.tipNoAddFamily = ent.getComponent('TipsWindow');
     },
     // 下载图片
     loadImage: function (url, callback) {

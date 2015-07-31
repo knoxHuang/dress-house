@@ -1,11 +1,11 @@
 var SubMenu = Fire.Class({
-    // ¼Ì³Ğ
+    // ç»§æ‰¿
     extends: Fire.Component,
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     constructor: function () {
         this.curType = 1;
     },
-    // ÊôĞÔ
+    // å±æ€§
     properties: {
         offset: new Fire.Vec2(0, 150),
         btn_DressUp: {
@@ -21,9 +21,9 @@ var SubMenu = Fire.Class({
             type: Fire.UIButton
         }
     },
-    // ¿ªÊ¼
+    // å¼€å§‹
     start: function () {
-        // ³£ÓÃµÄ±äÁ¿/Êı¾İ
+        // å¸¸ç”¨çš„å˜é‡/æ•°æ®
         var ent = Fire.Entity.find('/ODataBase');
         this.odataBase = ent.getComponent('ODataBase');
 
@@ -32,7 +32,7 @@ var SubMenu = Fire.Class({
         this.btn_GoToIndoor.onClick = this.onGoToIndoorEvent.bind(this);
     },
 
-    // type: µ¥Éí¹«Ô¢
+    // type: å•èº«å…¬å¯“
     openSubMenu: function (type) {
         this.curType = type;
         this.entity.active = true;
@@ -48,23 +48,23 @@ var SubMenu = Fire.Class({
         }
     },
 
-    // ÎÒÒª×°°ç
+    // æˆ‘è¦è£…æ‰®
     onDressUpEvent: function () {
         this.odataBase.globalData.gotoType = 1;
         this.changerScreen();
     },
-    // ¼ÒÈË»¥¶¯
+    // å®¶äººäº’åŠ¨
     onInteractiveFamilyEvent: function () {
 
     },
-    // ½øÈëÊÒÄÚ
+    // è¿›å…¥å®¤å†…
     onGoToIndoorEvent: function () {
         this.odataBase.globalData.gotoType = 2;
         this.changerScreen();
     },
-    // ¸üĞÂ
+    // æ›´æ–°
     update: function () {
-        // Æ¥ÅäUI·Ö±æÂÊ
+        // åŒ¹é…UIåˆ†è¾¨ç‡
         var camera = Fire.Camera.main;
         var bgWorldBounds = this.odataBase.bgRender.getWorldBounds();
         var bgLeftTopWorldPos = new Fire.Vec2(0, bgWorldBounds.yMin + this.offset.y);

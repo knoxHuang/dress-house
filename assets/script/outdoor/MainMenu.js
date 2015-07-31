@@ -204,6 +204,7 @@ var MainMenu = Fire.Class({
     },
     onGoToMyAddEvent: function () {
         console.log("打开我加入的");
+        this.odataBase.myAddFamilyWin.openWindow();
     },
     onGoToHouseShopEvent: function () {
         console.log("打开房屋商城");

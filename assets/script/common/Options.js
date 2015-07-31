@@ -1,47 +1,47 @@
 var Options = Fire.Class({
-    // ¼Ì³Ğ
+    // ç»§æ‰¿
     extends: Fire.Component,
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     constructor: function () {
         this.anim = null;
         this.bindHideOptionsEvent = this._hideOptionsEvent.bind(this);
         this.onHideEvent = null;
     },
-    // ÊôĞÔ
+    // å±æ€§
     properties: {
-        // Òş²ØÑ¡Ïî
+        // éšè—é€‰é¡¹
         btn_hide: {
             default: null,
             type: Fire.UIButton
         },
-        // É¾³ı¶ÔÏó
+        // åˆ é™¤å¯¹è±¡
         btn_del: {
             default: null,
             type: Fire.UIButton
         },
-        // ¾µÏñ·­×ª
+        // é•œåƒç¿»è½¬
         btn_MirrorFlip: {
             default: null,
             type: Fire.UIButton
         }
     },
-    // ÊÇ·ñ¿ªÆôÖĞ
+    // æ˜¯å¦å¼€å¯ä¸­
     hasOpen: function () {
         return this.entity.active;
     },
-    // ÊÇ·ñÓĞ´¥ÅöÑ¡Ïî
+    // æ˜¯å¦æœ‰è§¦ç¢°é€‰é¡¹
     hasTouch: function (target) {
         return target === this.btn_hide.entity ||
                target === this.btn_del.entity  ||
                target === this.btn_MirrorFlip.entity;
     },
-    // ÉèÖÃ×ø±ê
+    // è®¾ç½®åæ ‡
     setPos: function (value) {
         this.entity.transform.position = value;
     },
-    // ´ò¿ªÑ¡Ïî
+    // æ‰“å¼€é€‰é¡¹
     open: function (target) {
-        // ÉèÖÃ×ó±ß
+        // è®¾ç½®å·¦è¾¹
         if (target) {
             this.entity.parent = null;
             this.setPos(target.transform.worldPosition);
@@ -52,7 +52,7 @@ var Options = Fire.Class({
         }
         this.anim.play('options');
     },
-    // Òş²ØÑ¡Ïî
+    // éšè—é€‰é¡¹
     hide: function () {
         this.entity.active = false;
         this.entity.transform.scale = new Fire.Vec2(0, 0);
@@ -60,11 +60,11 @@ var Options = Fire.Class({
             this.onHideEvent();
         }
     },
-    // Òş²ØÑ¡Ïî
+    // éšè—é€‰é¡¹
     _hideOptionsEvent: function() {
         this.hide();
     },
-    // ¿ªÊ¼
+    // å¼€å§‹
     start: function () {
         this.btn_hide.onMousedown = this.bindHideOptionsEvent;
     }

@@ -1,10 +1,10 @@
 var Comp = Fire.Class({
-    // ¼Ì³Ð
+    // ç»§æ‰¿
     extends: Fire.Component,
-    // ¹¹Ôìº¯Êý
+    // æž„é€ å‡½æ•°
     constructor: function () {
     },
-    // ÊôÐÔ
+    // å±žæ€§
     properties: {
         imageMargin: Fire.v2(1500, 800),
         host: {
@@ -24,7 +24,7 @@ var Comp = Fire.Class({
             type: Fire.Entity
         }
     },
-    // ¿ªÊ¼
+    // å¼€å§‹
     start: function () {
         var ent = Fire.Entity.find('/DataBase');
         if(!ent) {
@@ -64,7 +64,7 @@ var Comp = Fire.Class({
         family_name.text = name;
     },
 
-    // ¸üÐÂ
+    // æ›´æ–°
     update: function () {
         var camera = Fire.Camera.main;
         var bgWorldBounds = this.dataBase.bgRender.getWorldBounds();

@@ -141,6 +141,7 @@ var SDataBase = Fire.Class({
     // 预加载初始化场景
     preloadInitScreenData: function () {
 
+        this.characters.entity.active = false;
         if (this.globalData) {
             if (this.globalData.gotoType === 2) {
                 this.characters.sprite = this.globalData.hostSprite;
