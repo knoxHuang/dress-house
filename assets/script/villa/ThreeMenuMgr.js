@@ -66,7 +66,7 @@ var ThreeMenuMgr = Fire.Class({
                     console.log(error);
                     return;
                 }
-                bigSprite = new Fire.Sprite(image);
+                var bigSprite = new Fire.Sprite(image);
                 entComp.setSprite(bigSprite);
             });
         }

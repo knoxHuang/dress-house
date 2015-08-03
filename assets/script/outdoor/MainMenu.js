@@ -3,6 +3,7 @@ var MainMenu = Fire.Class({
 
     constructor: function () {
         this.EXP_BAR_MAX_VALUE = 150;
+        this._curType = 0;
     },
 
     properties: {
@@ -125,6 +126,15 @@ var MainMenu = Fire.Class({
                 }
                 self.headIcon.sprite = new Fire.Sprite(image);
             });
+
+            self.odataBase.house.onClick = function () {
+                if (this._curType === 1) {
+                    Fire.Engine.loadScene('single');
+                }
+                else {
+                    Fire.Engine.loadScene('villa');
+                }
+            }
 
             // 适配背景
             self.odataBase.bgRender.customWidth = self.width * (Fire.Camera.main.size / self.height);

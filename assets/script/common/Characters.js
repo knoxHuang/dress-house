@@ -38,6 +38,7 @@ var Comp = Fire.Class({
 
     setHost: function (image, name) {
         var newSprite = new Fire.Sprite(image);
+        newSprite.pixelLevelHitTest = true;
         this.host_name.text = name;
         this.host.sprite = newSprite
         this.dataBase.globalData.hostSprite = newSprite;
@@ -50,6 +51,7 @@ var Comp = Fire.Class({
         ent.position = new Fire.Vec2(0, 0);
         var render = ent.getComponent(Fire.SpriteRenderer);
         render.sprite = new Fire.Sprite(image);
+        render.sprite.pixelLevelHitTest = true;
         var family_name = ent.find('family_name').getComponent(Fire.BitmapText);
         family_name.text = name;
         return ent;
@@ -60,6 +62,7 @@ var Comp = Fire.Class({
         ent.position = new Fire.Vec2(0, 0);
         var render = ent.getComponent(Fire.SpriteRenderer);
         render.sprite = new Fire.Sprite(image);
+        render.sprite.pixelLevelHitTest = true
         var family_name = ent.find('family_name').getComponent(Fire.BitmapText);
         family_name.text = name;
     },
