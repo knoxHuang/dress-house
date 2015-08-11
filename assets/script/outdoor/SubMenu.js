@@ -36,7 +36,11 @@ var SubMenu = Fire.Class({
     openSubMenu: function (type) {
         this.curType = type;
         this.entity.active = true;
-        this.btn_InteractiveFamily.entity.active = type !== 1;
+
+        this.btn_InteractiveFamily.entity.active = false;
+        if(type !== 1 && !Fire.isMobile) {
+            this.btn_InteractiveFamily.entity.active = true;
+        }
     },
 
     changerScreen: function () {
@@ -50,6 +54,14 @@ var SubMenu = Fire.Class({
 
     // 我要装扮
     onDressUpEvent: function () {
+        if (this.curType === 2) {
+            if (!this.odataBase.hasHouse) {
+                this.odataBase.tipCommon.openTipsWindow("您还未拥有自己的别墅，赶快到商城 \n 挑选属于自己的别墅吧！", function () {
+                    window.open("http://www.saike.com/houseshop/newhouse.php");
+                })
+                return;
+            }
+        }
         this.odataBase.globalData.gotoType = 1;
         this.changerScreen();
     },
@@ -59,6 +71,14 @@ var SubMenu = Fire.Class({
     },
     // 进入室内
     onGoToIndoorEvent: function () {
+        if (this.curType === 2) {
+            if (!this.odataBase.hasHouse) {
+                this.odataBase.tipCommon.openTipsWindow("您还未拥有自己的别墅，赶快到商城 \n 挑选属于自己的别墅吧！", function () {
+                    window.open("http://www.saike.com/houseshop/newhouse.php");
+                })
+                return;
+            }
+        }
         this.odataBase.globalData.gotoType = 2;
         this.changerScreen();
     },

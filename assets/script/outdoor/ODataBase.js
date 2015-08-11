@@ -10,6 +10,10 @@ var ODataBase = Fire.Class({
         this.uid = 0;
         //
         this.mark;
+        // 关系ID
+        this.selectID = -1;
+        //
+        this.hasHouse = false;
     },
 
     properties: {
@@ -32,6 +36,8 @@ var ODataBase = Fire.Class({
         // 载入控件
         this.loadControls();
         this.mask.active = true;
+
+        this.checkHouse();
     },
     // 载入控件
     loadControls: function () {
@@ -78,8 +84,16 @@ var ODataBase = Fire.Class({
         ent = Fire.Entity.find('/Win_Plan');
         this.planWin = ent.getComponent('PlanWindow');
         //
-        ent = Fire.Entity.find('/Tip_NoAddFamily');
-        this.tipNoAddFamily = ent.getComponent('TipsWindow');
+        ent = Fire.Entity.find('/Tip_NoAddFamily1');
+        this.tipNoAddFamily1 = ent.getComponent('TipsWindow');
+        ent = Fire.Entity.find('/Tip_NoAddFamily2');
+        this.tipNoAddFamily2 = ent.getComponent('TipsWindow');
+        //
+        ent = Fire.Entity.find('/Tip_RelationMgr');
+        this.relationMgr = ent.getComponent('RelationMgr');
+        //
+        ent = Fire.Entity.find('/Win_NoHouse');
+        this.noHouseWindow = ent.getComponent('NoHouseWindow');
     },
     // 下载图片
     loadImage: function (url, callback) {
@@ -100,6 +114,14 @@ var ODataBase = Fire.Class({
             }
         });
     },
+
+    checkHouse: function () {
+        var self = this;
+        self.serverNetWork.RquestCheckHouse(function (serverData) {
+            self.hasHouse = serverData.hadhouse == 1;
+        });
+    },
+
     // 初始化场景
     initScreen: function (sendData, callback) {
         var self = this;
@@ -134,5 +156,15 @@ var ODataBase = Fire.Class({
                 }
             });
         });
+    },
+
+    nohouseaboutList: function (callback) {
+        var self = this;
+        self.serverNetWork.RequestNohouseaboutList(function (serverData) {
+            if (callback) {
+                callback(serverData);
+            }
+        })
     }
+
 });

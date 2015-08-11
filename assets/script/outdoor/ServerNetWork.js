@@ -13,17 +13,23 @@ var ServerNetWork = Fire.Class({
     },
     // 属性
     properties: {
+        noErrorWindow: {
+            default: null,
+            type: Fire.Entity
+        },
         localTest: false
     },
 
     // 获取用户信息
     getToKenValue: function () {
         if (this.localTest) {
-            this.token = 'MTAwMTQ5MjY4NV8yYjEyZjY1OTZjMjQxNjBlYmIwMTY1OTA2MDk1Y2I1NF8xNDM4MDc1Mzc1X3dhcF8xMDAxNDkyNjg1';
+            //this.token = 'MTAwMTQ5MjY4NV8yYjEyZjY1OTZjMjQxNjBlYmIwMTY1OTA2MDk1Y2I1NF8xNDM4MDc1Mzc1X3dhcF8xMDAxNDkyNjg1';
+            this.token = "MTAwNDgzMTY2NF9mYzExN2JiZDc3OTU4YTgyZGI4ZjkxNTA5ZTBmMjlmMl8xNDM4Njc1OTE0X3dhcF8xMDA0ODMxNjY0";
         }
         else {
             this.token = this.getQueryString('token');
             if (!this.token) {
+                this.noErrorWindow.active = true;
                 //console.log("没有用户信息, ToKen is null");
                 return false;
             }
@@ -109,10 +115,30 @@ var ServerNetWork = Fire.Class({
         };
         this.sendData(postData);
     },
+    RquestCheckHouse: function (callback) {
+        var postData = {
+            url: "http://m.saike.com/suitdress/checkHouse.html",
+            sendData: {},
+            cb: callback,
+            errCb: this._errorCallBack.bind(this)
+        };
+        this.sendData(postData);
+    },
+
     // 楼层列表
     RequestFloorList: function (callback) {
         var postData = {
             url: "http://m.saike.com/suitdress/floorList.html",
+            sendData: {},
+            cb: callback,
+            errCb: this._errorCallBack.bind(this)
+        };
+        this.sendData(postData);
+    },
+    // 无房请求
+    RequestNohouseaboutList: function (callback) {
+        var postData = {
+            url: "http://m.saike.com/suitdress/nohouseabout.html",
             sendData: {},
             cb: callback,
             errCb: this._errorCallBack.bind(this)

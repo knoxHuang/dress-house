@@ -126,13 +126,20 @@ var MainMenu = Fire.Class({
                 }
                 self.headIcon.sprite = new Fire.Sprite(image);
             });
-
+            var hasHouse = serverData.list.type === 2;
             self.odataBase.house.onClick = function () {
-                if (this._curType === 1) {
+                if (type === 1) {
+                    self.odataBase.globalData.gotoType = 2;
                     Fire.Engine.loadScene('single');
                 }
                 else {
-                    Fire.Engine.loadScene('villa');
+                    if(hasHouse) {
+                        self.openNoHouse();
+                    }
+                    else {
+                        self.odataBase.globalData.gotoType = 2;
+                        Fire.Engine.loadScene('villa');
+                    }
                 }
             }
 
@@ -148,7 +155,13 @@ var MainMenu = Fire.Class({
             self.odataBase.mask.active = false;
         })
     },
-
+    //
+    openNoHouse: function () {
+        var self = this;
+        self.odataBase.nohouseaboutList(function (serverData) {
+            self.odataBase.relationMgr.openWindow(serverData);
+        });
+    },
     // use this for initialization
     start: function () {
         // 常用的变量/数据

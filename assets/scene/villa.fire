@@ -180,7 +180,7 @@
       "b": 0.18823529411764706,
       "a": 1
     },
-    "_size": 2544.011251970142,
+    "_size": 1313.0841790065856,
     "_contentStrategy": 1
   },
   {
@@ -2047,7 +2047,7 @@
       "__id__": 7
     },
     "_enabled": true,
-    "localTest": true
+    "localTest": false
   },
   {
     "__type__": "Fire.Entity",

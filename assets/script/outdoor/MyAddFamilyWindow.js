@@ -171,19 +171,27 @@ var MyAddFamilyWindow = Fire.Class({
     },
     // 打开窗口
     openWindow: function () {
-        this.entity.active = true;
         var self = this;
+        console.log(self.odataBase.hasHouse);
+        if(!self.odataBase.hasHouse) {
+            self.odataBase.tipNoAddFamily2.openTipsWindow(null, function () {
+                window.open("http://www.saike.com/houseshop/newhouse.php");
+                self.closeWindow();
+            });
+            return;
+        }
         self.odataBase.loadTip.openTips('载入数据！请稍后...');
         self.odataBase.serverNetWork.RequestFloorList(function (serverData) {
             self.odataBase.loadTip.closeTips();
             self.refreshFloorData(serverData, function () {
                 if (self._addMyFamilyDataSheets.length === 0) {
-                    self.odataBase.tipNoAddFamily.openTipsWindow(null, function () {
-                        window.open("http://www.saike.com/houseshop/newhouse.php");
+                    self.odataBase.tipNoAddFamily1.openTipsWindow(null, function () {
+                        window.open("http://www.saike.com/friend/search_city.php");
                         self.closeWindow();
                     })
                     return;
                 }
+                self.entity.active = true;
                 self.createFamilyInfo();
             });
         });
