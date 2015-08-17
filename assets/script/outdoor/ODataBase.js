@@ -74,9 +74,12 @@ var ODataBase = Fire.Class({
             ent.dontDestroyOnLoad = true;
         }
         this.globalData = ent.getComponent("GlobalData");
-        //
+        // 屋主
         ent = Fire.Entity.find('/Characters');
         this.characters = ent.getComponent('Characters');
+        // 家人
+        ent = Fire.Entity.find('/Familys');
+        this.familys = ent.getComponent('Familys');
         //
         ent = Fire.Entity.find('/Win_MyAddFamily');
         this.myAddFamilyWin = ent.getComponent('MyAddFamilyWindow');

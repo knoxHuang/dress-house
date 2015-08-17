@@ -84,27 +84,12 @@ var MainMenu = Fire.Class({
             self.odataBase.characters.entity.active = false;
             // 屋主数据
             if (serverData.family.length > 0) {
-                self.odataBase.characters.entity.active = true;
-                var host = serverData.family[0];
-                var host_url = host.figure_url;
-                var host_name = host.user_name;
-                self.odataBase.loadImage(host_url, function (error, image) {
-                    self.odataBase.characters.setHost(image, host_name);
-                });
+                var hostInfo = serverData.family[0];
+                self.odataBase.characters.refreshCharacters(hostInfo);
             }
             // 家人数据
-            if(serverData.family.length > 1) {
-                for(var i = 1, len = serverData.family.length; i < len; ++i ) {
-                    var family = serverData.family[i];
-                    var family_url = family.figure_url;
-                    self.odataBase.loadImage(family_url, function (family, error, image) {
-                        if (error) {
-                            return;
-                        }
-                        var family_name = family.relation_name + " " + family.user_name;
-                        self.odataBase.characters.addFamily(image, family_name);
-                    }.bind(this, family));
-                }
+            if(serverData.family.length > 2) {
+                self.odataBase.familys.refreshFamily(serverData.family);
             }
 
             self.headName.text = serverData.ownerinfo.user_name;

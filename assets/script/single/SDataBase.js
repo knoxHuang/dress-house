@@ -38,9 +38,7 @@ var SDataBase = Fire.Class({
         this.groundRender = ent.getComponent(Fire.SpriteRenderer);
         // 人物形象
         ent = Fire.Entity.find('/Characters');
-        this.characters = ent.getComponent(Fire.SpriteRenderer);
-        ent = Fire.Entity.find('/Characters/CharactersName');
-        this.charactersName = ent.getComponent(Fire.BitmapText);
+        this.characters = ent.getComponent("Characters");
         // 二级子菜单模板
         this.tempSecondaryMenu = this.entity.find('SecondaryMenu');
         // 三级子菜单模板
@@ -143,9 +141,10 @@ var SDataBase = Fire.Class({
         this.characters.entity.active = false;
         if (this.globalData) {
             if (this.globalData.gotoType === 2) {
-                this.characters.sprite = this.globalData.hostSprite;
-                this.charactersName.text = this.globalData.hostName;
-                this.characters.entity.active = true;
+                var newSprite = this.globalData.hostSprite;
+                var newName = this.globalData.hostName;
+                var relationName = this.globalData.hostRelationName;
+                this.characters.refreshCharacters(newName, relationName, newSprite);
             }
             else {
                 this.ssecondaryMenuMgr.openSecondaryMenu();

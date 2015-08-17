@@ -24,7 +24,7 @@ var ServerNetWork = Fire.Class({
     getToKenValue: function () {
         if (this.localTest) {
             //this.token = 'MTAwMTQ5MjY4NV8yYjEyZjY1OTZjMjQxNjBlYmIwMTY1OTA2MDk1Y2I1NF8xNDM4MDc1Mzc1X3dhcF8xMDAxNDkyNjg1';
-            this.token = "MTAwNDgzMTY2NF9mYzExN2JiZDc3OTU4YTgyZGI4ZjkxNTA5ZTBmMjlmMl8xNDM4Njc1OTE0X3dhcF8xMDA0ODMxNjY0";
+            this.token = "MTAwMDAwMDA1N181ZDNkMjEwY2E4M2Q2ODVmOGE5ZWFkNmUwN2IwODM1OV8xNDM5NzgyMDEwX3dhcF8xMDAxNDkyNjg1";
         }
         else {
             this.token = this.getQueryString('token');

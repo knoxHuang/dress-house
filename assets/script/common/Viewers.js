@@ -7,11 +7,11 @@ var Comp = Fire.Class({
     // 属性
     properties: {
         imageMargin: Fire.v2(1500, 800),
-        host: {
+        viewers: {
             default: null,
             type: Fire.SpriteRenderer
         },
-        host_name: {
+        viewers_name: {
             default: null,
             type: Fire.BitmapText
         },
@@ -43,34 +43,32 @@ var Comp = Fire.Class({
         }
     },
 
-    //
-    refreshCharacters: function (infoOrName, relationName, newSprite) {
+    refreshViewers: function (infoOrName, relationName, newSprite) {
         var self = this;
         if (newSprite) {
-            newSprite.pixelLevelHitTest = true;
-            self.host_name.text = infoOrName;
+            self.viewers_name.text = infoOrName;
             self.relation_name.text = relationName;
-            self.host.sprite = newSprite;
+            self.viewers.sprite = newSprite;
             self.entity.active = true;
         }
         else{
             self.dataBase.loadImage(infoOrName.figure_url, function (error, image) {
                 var newSprite = new Fire.Sprite(image);
-                    self.setHost(infoOrName.user_name, infoOrName.relation_name, newSprite);
+                self.setViewers(infoOrName.user_name, infoOrName.relation_name, newSprite);
                 self.entity.active = true;
             });
         }
     },
 
-    setHost: function (name, relationName, newSprite) {
+    setViewers: function (name, relationName, newSprite) {
         newSprite.pixelLevelHitTest = true;
-        this.host_name.text = name;
+        this.viewers_name.text = name;
         this.relation_name.text = relationName;
-        this.host.sprite = newSprite;
+        this.viewers.sprite = newSprite;
         if (this.globalData) {
-            this.globalData.hostName = name;
-            this.globalData.hostSprite = newSprite;
-            this.globalData.hostRelationName = relationName;
+            this.globalData.viewersName = name;
+            this.globalData.viewersSprite = newSprite;
+            this.globalData.viewersRelationNname = relationName;
         }
     },
 
