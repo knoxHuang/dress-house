@@ -95,6 +95,12 @@ var SDataBase = Fire.Class({
         }
     },
 
+    update: function () {
+        if (this.stoKenTips.active && this.sloadingTips.entity.active) {
+            this.sloadingTips.closeTips();
+        }
+    },
+
     // 下载图片
     loadImage: function (url, callback) {
         var self = this;

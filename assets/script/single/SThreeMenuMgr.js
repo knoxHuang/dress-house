@@ -111,7 +111,7 @@ var SThreeMenuMgr = Fire.Class({
     },
     // 创建各个类型家具
     _onCreateFurnitureEvent: function (event) {
-        console.log('创建' + event.target.parent.name);
+        //console.log('创建' + event.target.parent.name);
         this.createOrChangeFurniture(event.target.parent);
     },
     // 重置菜单列表

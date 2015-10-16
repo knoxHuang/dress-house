@@ -21,14 +21,15 @@ var SThreeMenu = Fire.Class({
     },
     // 重置家具
     resetMenu: function () {
-        this._btnMenu.setText('载入中');
+        this.setText('');
         this._btnMenu.setSprite(this.defaultSprite);
         this._btnMenu.onClick = null;
         this.entity.active = false;
     },
     // 设置文字
     setText: function (text) {
-        this._btnMenu.setText(text);
+        this._btnMenu.setText('');
+        //this._btnMenu.setText(text);
     },
     // 设置图片
     setSprite: function (smallSprite, event) {
@@ -52,6 +53,7 @@ var SThreeMenu = Fire.Class({
         this.suit_id = data.suit_id;
         this.tName = data.name;
         this.bigImageUrl = data.bigImageUrl;
+        this.setText('');
         this.setText(data.name);
         if (data.smallSprite) {
             this.setSprite(data.smallSprite, bindEvent);

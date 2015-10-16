@@ -8,6 +8,7 @@ var SecondMenu = Fire.Class({
         this.roomType = 0;
         this.uid = 0;
         this.price = 0;
+        this.show_price = '';
         // 折扣
         this.discount = 1;
         this.smallSprite = null;
@@ -32,8 +33,8 @@ var SecondMenu = Fire.Class({
     resetMenu: function () {
         this.tid = 0;
         this.hasDrag = false;
-        this.tname = '载入中';
-        this._btnMenu.setText('载入中');
+        this.setText('');
+        this.show_price = '';
         this._btnMenu.setSprite(this.defaultSprite);
         this._btnMenu.setCustomSize(-1, -1);
         this._btnMenu.onClick = null;
@@ -43,14 +44,20 @@ var SecondMenu = Fire.Class({
     // 设置文字
     setText: function (text) {
         this.tname = text;
-        this._btnMenu.setText(text);
+        this._btnMenu.setText('');
+        //this._btnMenu.setText(text);
     },
     // 设置价格
     setPrice: function (value) {
         this.price = value;
-        this._price.text = value;
-        this._price.entity.active = true;
     },
+
+    setPriceText: function (value) {
+        this.show_price = value;
+        this._price.text =  value;
+        this._price.entity.active = this.price !== 0;
+    },
+
     // 设置图片
     setSprite: function (sprite, event) {
         if (! sprite) {
@@ -136,6 +143,7 @@ var SecondMenu = Fire.Class({
             this.setText(data.tname);
             this.roomType = data.roomType;
             this.setPrice(data.price);
+            this.setPriceText(data.show_price);
             this.entity.name = data.tid;
             //
             var self = this;

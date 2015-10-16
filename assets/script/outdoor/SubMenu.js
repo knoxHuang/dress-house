@@ -1,3 +1,5 @@
+var Tip_InteractiveFamily = require('Tip_InteractiveFamily');
+
 var SubMenu = Fire.Class({
     // 继承
     extends: Fire.Component,
@@ -19,6 +21,10 @@ var SubMenu = Fire.Class({
         btn_GoToIndoor: {
             default: null,
             type: Fire.UIButton
+        },
+        tip_InteractiveFamily: {
+            default: null,
+            type: Tip_InteractiveFamily
         }
     },
     // 开始
@@ -67,7 +73,7 @@ var SubMenu = Fire.Class({
     },
     // 家人互动
     onInteractiveFamilyEvent: function () {
-
+        this.tip_InteractiveFamily.openTip();
     },
     // 进入室内
     onGoToIndoorEvent: function () {

@@ -208,9 +208,11 @@ var SNetworkMgr = Fire.Class({
                 toKen: this.toKen
             }
         };
-        this.sdataBase.sloadingTips.openTips('存储缩略图');
+
+        var self = this;
+        self.sdataBase.sloadingTips.openTips('存储缩略图');
         jQuery.post(postData.url, postData, function(data) {
-            this.sdataBase.sloadingTips.closeTips();
+            self.sdataBase.sloadingTips.closeTips();
             if (callback) {
                 callback(data);
             }

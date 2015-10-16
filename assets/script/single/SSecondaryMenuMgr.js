@@ -26,7 +26,7 @@ var SSecondaryMenuMgr = Fire.Class({
     // 打开各个类型家具列表
     _onOpenThreeMenuEvent: function (event) {
         var menu = event.target.parent.getComponent('SSecondaryMenu');
-        console.log('获取' + menu.tid + "类型家具列表");
+        //console.log('获取' + menu.tid + "类型家具列表");
         this.sdataBase.sthreeMenuMgr.openMenu(menu.tid, menu.hasDrag);
     },
     // 重置菜单列表

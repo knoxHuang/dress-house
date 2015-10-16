@@ -158,8 +158,8 @@
     "_enabled": true,
     "_position": {
       "__type__": "Fire.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 3075.3900890841646,
+      "y": -151.26191263372635
     },
     "_rotation": 0,
     "_scale": {
@@ -183,7 +183,7 @@
       "b": 0.18823529411764706,
       "a": 1
     },
-    "_size": 942.8467184528752,
+    "_size": 6281.129451619098,
     "_contentStrategy": 1
   },
   {
@@ -1033,7 +1033,7 @@
     "_enabled": true,
     "_position": {
       "__type__": "Fire.Vec2",
-      "x": 0,
+      "x": 2799.43,
       "y": 0
     },
     "_rotation": 0,
@@ -1178,7 +1178,7 @@
     "transform": {
       "__id__": 49
     },
-    "_active": true,
+    "_active": false,
     "_parent": {
       "__id__": 41
     },
@@ -1244,7 +1244,7 @@
     "_position": {
       "__type__": "Fire.Vec2",
       "x": 0,
-      "y": -145
+      "y": -100
     },
     "_rotation": 0,
     "_scale": {
@@ -1423,7 +1423,7 @@
     "_enabled": true,
     "_position": {
       "__type__": "Fire.Vec2",
-      "x": -14,
+      "x": 2799.43,
       "y": -316
     },
     "_rotation": 0,
@@ -1568,7 +1568,7 @@
     "transform": {
       "__id__": 66
     },
-    "_active": true,
+    "_active": false,
     "_parent": {
       "__id__": 58
     },
@@ -1634,7 +1634,7 @@
     "_position": {
       "__type__": "Fire.Vec2",
       "x": 0,
-      "y": -145
+      "y": -100
     },
     "_rotation": 0,
     "_scale": {
@@ -2843,6 +2843,9 @@
         "__id__": 126
       },
       {
+        "__id__": 129
+      },
+      {
         "__id__": 132
       },
       {
@@ -2944,7 +2947,7 @@
   },
   {
     "__type__": "Fire.Entity",
-    "_name": "host_name",
+    "_name": "vip1",
     "_objFlags": 0,
     "transform": {
       "__id__": 127
@@ -2953,17 +2956,13 @@
     "_parent": {
       "__id__": 121
     },
-    "_children": [
-      {
-        "__id__": 128
-      }
-    ],
+    "_children": [],
     "_components": [
       {
         "__id__": 127
       },
       {
-        "__id__": 131
+        "__id__": 128
       }
     ]
   },
@@ -2978,48 +2977,7 @@
     "_position": {
       "__type__": "Fire.Vec2",
       "x": 0,
-      "y": 319.338142689176
-    },
-    "_rotation": 0,
-    "_scale": {
-      "__type__": "Fire.Vec2",
-      "x": 1,
-      "y": 1
-    }
-  },
-  {
-    "__type__": "Fire.Entity",
-    "_name": "vip1",
-    "_objFlags": 0,
-    "transform": {
-      "__id__": 129
-    },
-    "_active": true,
-    "_parent": {
-      "__id__": 126
-    },
-    "_children": [],
-    "_components": [
-      {
-        "__id__": 129
-      },
-      {
-        "__id__": 130
-      }
-    ]
-  },
-  {
-    "__type__": "Fire.Transform",
-    "_name": "",
-    "_objFlags": 0,
-    "entity": {
-      "__id__": 128
-    },
-    "_enabled": true,
-    "_position": {
-      "__type__": "Fire.Vec2",
-      "x": 0,
-      "y": 94.46867705508802
+      "y": 363.23
     },
     "_rotation": 0,
     "_scale": {
@@ -3033,7 +2991,7 @@
     "_name": "",
     "_objFlags": 0,
     "entity": {
-      "__id__": 128
+      "__id__": 126
     },
     "_enabled": true,
     "_sprite": {
@@ -3052,11 +3010,52 @@
     "_imageType": 0
   },
   {
+    "__type__": "Fire.Entity",
+    "_name": "host_name",
+    "_objFlags": 0,
+    "transform": {
+      "__id__": 130
+    },
+    "_active": true,
+    "_parent": {
+      "__id__": 121
+    },
+    "_children": [],
+    "_components": [
+      {
+        "__id__": 130
+      },
+      {
+        "__id__": 131
+      }
+    ]
+  },
+  {
+    "__type__": "Fire.Transform",
+    "_name": "",
+    "_objFlags": 0,
+    "entity": {
+      "__id__": 129
+    },
+    "_enabled": true,
+    "_position": {
+      "__type__": "Fire.Vec2",
+      "x": 0,
+      "y": 319.338142689176
+    },
+    "_rotation": 0,
+    "_scale": {
+      "__type__": "Fire.Vec2",
+      "x": 1,
+      "y": 1
+    }
+  },
+  {
     "__type__": "Fire.BitmapText",
     "_name": "",
     "_objFlags": 0,
     "entity": {
-      "__id__": 126
+      "__id__": 129
     },
     "_enabled": true,
     "_bitmapFont": {
@@ -3219,6 +3218,11 @@
     "host_name": {
       "__id__": 131
     },
+    "icon": {
+      "__id__": 126
+    },
+    "offsetMaxY": 413.81,
+    "offsetMinY": 363.23,
     "relation_name": {
       "__id__": 134
     }

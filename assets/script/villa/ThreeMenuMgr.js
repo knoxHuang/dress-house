@@ -93,7 +93,7 @@ var ThreeMenuMgr = Fire.Class({
     },
     // 创建各个类型家具
     _onCreateFurnitureEvent: function (event) {
-        console.log('创建家具ID:' + event.target.parent.name);
+        //console.log('创建家具ID:' + event.target.parent.name);
         this.createOrChangeFurniture(event.target.parent);
     },
     // 创建套装到场景中
@@ -179,7 +179,7 @@ var ThreeMenuMgr = Fire.Class({
             }
             menuData.props_type = this._curId;
             menuData.hasDrag = this._hasDrag;
-            menu.entity.transform.position = new Fire.Vec2(-490 + (index * 160), 55);
+            menu.entity.transform.position = new Fire.Vec2(-490 + (index * 160), 20);
             menu.refresh(menuData, bindEvent);
             index++;
         }
@@ -244,7 +244,7 @@ var ThreeMenuMgr = Fire.Class({
         for(var i = startNum; i < endNum; ++i) {
             var menu = this._menuList[index];
             if (this._curId === 0) {
-                menu.entity.transform.position = new Fire.Vec2(-500 + (index * 160), 55);
+                menu.entity.transform.position = new Fire.Vec2(-500 + (index * 160), 20);
             }
             else {
                 menu.entity.transform.position = new Fire.Vec2(-490 + (index * 250), 20);
@@ -269,7 +269,7 @@ var ThreeMenuMgr = Fire.Class({
             var ent = Fire.instantiate(tempFurniture);
             ent.name = i.toString();
             ent.parent = this.root;
-            ent.transform.position = new Fire.Vec2(-500 + (i * 160), 55);
+            ent.transform.position = new Fire.Vec2(-500 + (i * 160), 20);
             var menu = ent.getComponent('ThreeMenu');
             menu.init();
             // 存储对象

@@ -80,6 +80,7 @@ var Furniture = Fire.Class({
         this.pack_id = data.pack_id || 0;
         this.suit_id = data.suit_id;
         this.price = data.price || 0;
+        this.show_price = data.show_price || "";
         this.discount = data.discount || 1;
         this.imageUrl = data.bigImageUrl || data.imgUrl;
         this.smallSprite = data.smallSprite || null;

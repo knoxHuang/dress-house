@@ -52,24 +52,26 @@ var Screenshot = Fire.Class({
     update: function () {
         if (this.frameCount !== -1 && this.frameCount === Fire.Time.frameCount) {
             // 绘制图片
+            // 绘制图片
             this.canvasCtxToDreawImage.clearRect(0, 0, 120, 120);
             var w = Fire.Engine._renderContext.width;
             var h = Fire.Engine._renderContext.height;
-            var mainImage = convertCanvasToImage(Fire.Engine._renderContext.canvas);
-            this.sdataBase.sloadingTips.openTips('创建缩略图');
-            mainImage.onload = function () {
-                this.canvasCtxToDreawImage.drawImage(mainImage, 0, 0, w, h, 0, 0, 120, 120);
-                var image = convertCanvasToImage(this.canvasCtxToDreawImage.canvas);
-                this.sdataBase.sloadingTips.closeTips();
-                if (this.callback) {
-                    this.callback(image);
-                }
-            }.bind(this);
+            //var mainImage = convertCanvasToImage(Fire.Engine._renderContext.canvas);
+            this.canvasCtxToDreawImage.drawImage(Fire.Engine._renderContext.canvas, 0, 0, w, h, 0, 0, 120, 120);
             // 打开之前关闭的界面
             for (var i = 0, len = this.needHideEntList.length; i < len; ++i) {
                 this.needHideEntList[i].active = true;
             }
             this.frameCount = -1;
+
+            this.sdataBase.sloadingTips.openTips('创建缩略图');
+            var mainImage = convertCanvasToImage(this.canvasCtxToDreawImage.canvas);
+            mainImage.onload = function () {
+                this.sdataBase.sloadingTips.closeTips();
+                if (this.callback) {
+                    this.callback(mainImage);
+                }
+            }.bind(this);
         }
     }
 });

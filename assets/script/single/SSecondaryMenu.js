@@ -25,7 +25,8 @@ var SSecondaryMenu = Fire.Class({
     },
     // 设置文字
     setText: function (value) {
-        this.btn_menu.setText(value);
+        this.btn_menu.setText('');
+        //this.btn_menu.setText(value);
     },
     // 重置菜单
     resetMenu: function () {
@@ -34,7 +35,7 @@ var SSecondaryMenu = Fire.Class({
         this.tname = '载入中..';
         this.url = '';
         this.setSprite(this.defaultSprite);
-        this.setText(this.tname);
+        this.setText("");
     },
     // 初始化
     init: function () {
@@ -50,6 +51,7 @@ var SSecondaryMenu = Fire.Class({
         this.hasDrag = data.isdrag < 2;
         this.tname = data.tname;
         this.url = data.url;
+        this.setText("");
         this.setText(data.tname);
         if (data.smallSprite) {
             this.setSprite(data.smallSprite);

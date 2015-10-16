@@ -37,7 +37,6 @@ var NetworkMgr = Fire.Class({
         else{
             this.token = this.getQueryString('token');
             if (! this.token){
-                //console.log("没有用户信息, ToKen is null");
                 return false;
             }
         }
@@ -88,14 +87,12 @@ var NetworkMgr = Fire.Class({
             data: params,
             dataType: 'jsonp',
             success: function (data) {
-                //console.log(data);
                 if (! Fire.Engine.isPlaying) {
                     return;
                 }
                 if (callBack) {
                     callBack(data);
                 }
-                //self.dataBase.loadTips.closeTips();
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 if (! Fire.Engine.isPlaying) {

@@ -52,7 +52,7 @@ var SecondMenuMgr = Fire.Class({
     // 打开各个类型家具列表
     _onOpenThreeMenuEvent: function (event) {
         var menu = event.target.parent.getComponent('SecondMenu');
-        console.log('获取' + menu.tid + "类型家具列表");
+        //console.log('获取' + menu.tid + "类型家具列表");
         var self = this;
         // 如果是物品的话就需要先请求服务器信息
         if (self._curType === 2) {
@@ -206,7 +206,7 @@ var SecondMenuMgr = Fire.Class({
         for (var i = startNum; i < endNum; ++i) {
             var items = dataList[i];
             var menu = this._menuList[index];
-            menu.entity.transform.position = new Fire.Vec2(-500 + (index * 250), 60);
+            menu.entity.transform.position = new Fire.Vec2(-500 + (index * 250), 40);
             menu.refresh_suitItems(items, this.bindCreateSuitItemEvent);
             index++;
         }
@@ -236,7 +236,7 @@ var SecondMenuMgr = Fire.Class({
         for (var i = 0; i < dataSheets.length; ++i) {
             var menu = this._menuList[i];
             var items = dataSheets[i];
-            menu.entity.transform.position = new Fire.Vec2(-550 + (i * 200), 25);
+            menu.entity.transform.position = new Fire.Vec2(-550 + (i * 200), 20);
             menu.refresh(items, this.bindOpenThreeMenuEvent);
         }
     },
@@ -283,7 +283,7 @@ var SecondMenuMgr = Fire.Class({
     },
     // 激活菜单时触发的事件 0:单品 1:套装 2:物品柜
     openMenu: function (id) {
-        console.log('打开ID:' + id + "   (0:单品 1:套装 2:物品柜)");
+        //console.log('打开ID:' + id + "   (0:单品 1:套装 2:物品柜)");
         //
         this.btn_Left.active = false;
         this.btn_Right.active = false;

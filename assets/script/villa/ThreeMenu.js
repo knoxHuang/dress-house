@@ -6,6 +6,7 @@ var ThreeMenu = Fire.Class({
         this._btnMenu = null;
         this._priceText = null;
         this.smallSprite = null;
+        this.show_price = "";
         // 如果是套装的话就有家具列表
         this.dressList = [];
     },
@@ -46,7 +47,7 @@ var ThreeMenu = Fire.Class({
     },
     // 重置家具
     resetMenu: function () {
-        this._btnMenu.setText('载入中');
+        this.setText('');
         this._btnMenu.setSprite(this.defaultSprite);
         this._btnMenu.onClick = null;
         this.entity.name = '没赋值';
@@ -61,20 +62,27 @@ var ThreeMenu = Fire.Class({
         this.setMarkUse(false);
         this.setText('');
         this.setPrice(0);
+        this.setPriceText("");
         this.smallSprite = null;
         this.dressList = [];
         this.entity.active = false;
     },
     // 设置文字
     setText: function (text) {
-        this._btnMenu.setText(text);
+        //this._btnMenu.setText(text);
+        this._btnMenu.setText('');
     },
     // 设置价格
     setPrice: function (value) {
         this.price = !value ? 0 : value;
-        this._priceText.entity.active = this.price !== 0;
-        this._priceText.text = value;
     },
+
+    setPriceText: function (value) {
+        this.show_price = value;
+        this._priceText.text =  value;
+        this._priceText.entity.active = this.price !== 0;
+    },
+
     // 设置图片
     setSprite: function (smallSprite, event) {
         if (! smallSprite) {
@@ -130,7 +138,9 @@ var ThreeMenu = Fire.Class({
         this.suit_name = data.suit_name || '';
         this.props_name = data.props_name || '';
         this.setText(data.props_name || data.suit_name);
+        this.setText('');
         this.setPrice(data.price || 0);
+        this.setPriceText(data.show_price);
         this.bigImageUrl = data.bigImageUrl;
         this.dressList = data.dressList || [];
         this.entity.active = true;

@@ -36,6 +36,8 @@ var DataBata = Fire.Class({
             suit_from: 1,
             // 套装价格
             price: 0,
+            //
+            show_price: '',
             // 折扣
             discount: 1,
             // 套装列表
@@ -211,6 +213,13 @@ var DataBata = Fire.Class({
             this.globalData = ent.getComponent("GlobalData");
         }
     },
+
+    update: function () {
+        if (this.toKenTipWin.active && this.loadTips.entity.active) {
+            this.loadTips.closeTips();
+        }
+    },
+
     // 下载图片
     loadImage: function (url, callback) {
         var self = this;
@@ -258,26 +267,6 @@ var DataBata = Fire.Class({
             this.ground.imageUrl !== this.default_diban ) {
             return true;
         }
-        //if (! this.hasCanSave) {
-        //    return false;
-        //}
-        //var curSprite = this.background.getRenderSprite();
-        //var defaultSprite = this.background.defaultSprite;
-        //if (curSprite !== defaultSprite) {
-        //    return true;
-        //}
-        //curSprite = this.ground.getRenderSprite();
-        //defaultSprite = this.ground.defaultSprite;
-        //if (curSprite !== defaultSprite) {
-        //    return true;
-        //}
-        //var hasSame = false, children = this.room.getChildren();
-        //for(var i = 0; i < children.length; ++i) {
-        //    hasSame = this.defaultScreenChilds[i] === children[i];
-        //    if (! hasSame) {
-        //        return true;
-        //    }
-        //}
         return false;
     },
     // 清空场景
@@ -315,6 +304,8 @@ var DataBata = Fire.Class({
             suit_from: 1,
             // 套装价格
             price: 0,
+            // 价格单位
+            show_price: "",
             // 折扣
             discount: 1,
             // 家具列表
@@ -471,6 +462,8 @@ var DataBata = Fire.Class({
                 suit_from: 1,
                 // 套装价格
                 price: 0,
+                // 价格单位
+                show_price: "",
                 // 折扣
                 discount: 1,
                 // 套装列表
@@ -547,6 +540,7 @@ var DataBata = Fire.Class({
                     props_name: data.prod_name,
                     prod_uid: data.prod_uid,
                     price: data.prod_price,
+                    show_price: data.show_price,
                     discount: data.discount,
                     bigImageUrl: data.prod_souce_url,
                     bigSprite: null,
@@ -610,6 +604,7 @@ var DataBata = Fire.Class({
                     imageUrl: data.prod_img,
                     roomType: data.prod_roomtype,
                     price: data.prod_price,
+                    show_price: data.show_price,
                     smallSprite: null
                 };
                 self.suitItems_Second_DataSheets.push(setData);
@@ -626,7 +621,7 @@ var DataBata = Fire.Class({
             tid: 0,
             tname: '我的单品',
             isdrag: 2,
-            localPath: 'itemsCabinet/single/single',
+            localPath: 'villa/itemsCabinet/single/single',
             smallSprite: null
         };
         this.backpack_Second_DataSheets.push(data);
@@ -634,7 +629,7 @@ var DataBata = Fire.Class({
             tid: 1,
             tname: '我的套装',
             isdrag: 2,
-            localPath: 'itemsCabinet/set/set',
+            localPath: 'villa/itemsCabinet/set/set',
             smallSprite: null
         };
         this.backpack_Second_DataSheets.push(data);
@@ -668,6 +663,7 @@ var DataBata = Fire.Class({
                     hasDrag: data.prod_category > 2,
                     props_name: data.prod_name,
                     price: data.price,
+                    show_price: data.show_price,
                     discount: data.discount,
                     imageUrl: data.prod_image_url,
                     bigImageUrl: data.prod_souce_url,

@@ -1,6 +1,6 @@
 function ImageLoader(url, callback, onProgress) {
     var image = document.createElement('img');
-    //image.crossOrigin = 'Anonymous';
+    image.crossOrigin = 'Anonymous';
 
     var onload = function () {
         if (callback) {

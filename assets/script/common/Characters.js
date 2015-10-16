@@ -15,6 +15,12 @@ var Comp = Fire.Class({
             default: null,
             type: Fire.BitmapText
         },
+        icon: {
+            default: null,
+            type: Fire.Entity
+        },
+        offsetMaxY: 255,
+        offsetMinY: 190,
         relation_name:{
             default: null,
             type: Fire.BitmapText
@@ -52,6 +58,15 @@ var Comp = Fire.Class({
             self.relation_name.text = relationName;
             self.host.sprite = newSprite;
             self.entity.active = true;
+
+            var iconPos = self.icon.transform.position;
+            if(relationName !== "") {
+                iconPos.y = self.offsetMaxY;
+            }
+            else {
+                iconPos.y = self.offsetMinY;
+            }
+            self.icon.transform.position = iconPos
         }
         else{
             self.dataBase.loadImage(infoOrName.figure_url, function (error, image) {
@@ -67,6 +82,14 @@ var Comp = Fire.Class({
         this.host_name.text = name;
         this.relation_name.text = relationName;
         this.host.sprite = newSprite;
+        var iconPos = this.icon.transform.position;
+        if(relationName !== "") {
+            iconPos.y = this.offsetMaxY;
+        }
+        else {
+            iconPos.y = this.offsetMinY;
+        }
+        this.icon.transform.position = iconPos
         if (this.globalData) {
             this.globalData.hostName = name;
             this.globalData.hostSprite = newSprite;

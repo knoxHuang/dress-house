@@ -172,7 +172,6 @@ var MyAddFamilyWindow = Fire.Class({
     // 打开窗口
     openWindow: function () {
         var self = this;
-        console.log(self.odataBase.hasHouse);
         if(!self.odataBase.hasHouse) {
             self.odataBase.tipNoAddFamily2.openTipsWindow(null, function () {
                 window.open("http://www.saike.com/houseshop/newhouse.php");
